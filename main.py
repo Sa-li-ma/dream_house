@@ -69,7 +69,7 @@ htypes = ['2Story', '1Story', '1.5Fin', '1.5Unf', 'SFoyer', 'SLvl', '2.5Unf',
        '2.5Fin']
 btypes = ['1Fam', '2fmCon', 'Duplex', 'TwnhsE', 'Twnhs']
 with st.sidebar:
-    op = ["Prédiction du prix de la maison","Prédiction du type de la maison"]
+    op = ["Prédiction du prix de la maison","Prédiction du type de bâtiment"]
     choix = st.selectbox("Menu",[0,1],format_func=lambda x: op[x])
 st.markdown("<h1>Dream House</h1>", unsafe_allow_html=True)
 
@@ -118,7 +118,7 @@ if choix == 0:
         pred = regression_pedict(f)
         st.success(f"Prix prédit : {pred}")
 elif choix == 1:
-    st.write("Entrez les informations pour prédire le type d'une.")
+    st.write("Entrez les informations pour prédire le type de bâtiment.")
     form = st.form("classifier_form")
     with form:
         GrLivArea = st.number_input("GrLivArea") ###
@@ -144,4 +144,4 @@ elif choix == 1:
         
         }
         pred = class_predict(f2)
-        st.success(f"Le type de la maison est {pred}")
+        st.success(f"Le type de bâtiment est {pred}")
